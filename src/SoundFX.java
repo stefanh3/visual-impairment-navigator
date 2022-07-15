@@ -18,12 +18,12 @@ public class SoundFX {
             SourceDataLine aLine = (SourceDataLine) AudioSystem.getLine(info);
             aLine.open(aFormat);
             aLine.start();
-            System.out.println(pFilePath + "Has been played");
+            System.out.println(pFilePath + " Has been played");
 
             byte[] bytesBuffer = new byte[BUFFER_SIZE];
             int bytesRead = -1;
-
-            while ((bytesRead = aStream.read(bytesBuffer)) != 1) {
+ 
+            while ((bytesRead = aStream.read(bytesBuffer)) != -1) {
                 aLine.write(bytesBuffer, 0, bytesRead);
             }
 
